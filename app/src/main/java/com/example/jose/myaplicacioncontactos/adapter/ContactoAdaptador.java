@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.example.jose.myaplicacioncontactos.DetalleContacto;
 import com.example.jose.myaplicacioncontactos.R;
 import com.example.jose.myaplicacioncontactos.pojo.Contacto;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -21,15 +22,15 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Co
 
     ArrayList<Contacto> contactos;
     Activity activity;
-    public ContactoAdaptador(ArrayList<Contacto> contactos, FragmentActivity activity) {
-        this.contactos= contactos;
+
+    public ContactoAdaptador(ArrayList<Contacto> contactos, Activity activity) {
+        this.contactos = contactos;
         this.activity = activity;
     }
 
     @Override
     public ContactoViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_grid_contacto, parent, false);
-
         return new ContactoViewHolder(v);
     }
 
@@ -37,10 +38,14 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Co
     public void onBindViewHolder(final ContactoViewHolder contactoViewHolder, int position) {
         final Contacto contacto = contactos.get(position);
         //contactoViewHolder.imgFoto.setImageResource(contacto.getUrlFoto());
+        Picasso.with(activity)
+                .load(contacto.getUrlFoto())
+                .placeholder(R.drawable.shock_rave_bonus_icon)
+                .into(contactoViewHolder.imgFoto);
         //contactoViewHolder.tvNombre.setText(contacto.getNombre());
         //contactoViewHolder.tvTelefono.setText(contacto.getTelefono());
-        contactoViewHolder.tvLikes.setText(String.valueOf(contacto.getLikes()) + " " + activity.getString(R.string.likes));
-        
+        contactoViewHolder.tvLikes.setText(String.valueOf(contacto.getLikes()));
+
         contactoViewHolder.imgFoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,7 +55,6 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Co
                 intent.putExtra("like", contacto.getLikes());
                 //intent.putExtra("email", contacto.getEmail());
                 activity.startActivity(intent);
-
             }
         });
 
@@ -63,7 +67,7 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Co
 
                 ConstructorContactos constructorContactos = new ConstructorContactos(activity);
                 constructorContactos.darLikeCotnacto(contacto);
-                contactoViewHolder.tvLikes.setText(constructorContactos.obtenerLikesContacto(contacto) + " " + activity.getString(R.string.likes));
+                contactoViewHolder.tvLikes.setText(constructorContactos.obtenerLikesContacto(contacto) + " Likes");
 
 
             }

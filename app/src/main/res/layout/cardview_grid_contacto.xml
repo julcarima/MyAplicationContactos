@@ -40,7 +40,7 @@
                 android:id="@+id/imgBone"
                 android:layout_width="27dp"
                 android:layout_height="27dp"
-                android:src="@drawable/dog_bone_48"
+                android:src="@drawable/like_bone"
                 />
 
         </LinearLayout>

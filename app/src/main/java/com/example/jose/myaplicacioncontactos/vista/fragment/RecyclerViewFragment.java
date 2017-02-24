@@ -3,6 +3,7 @@ package com.example.jose.myaplicacioncontactos.vista.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -21,7 +22,7 @@ import java.util.ArrayList;
  * Created by jose on 14/02/17.
  */
 
-public class RecyclerViewFragment extends Fragment implements IRecyclerViewFragmentView {
+public class    RecyclerViewFragment extends Fragment implements IRecyclerViewFragmentView {
     private ArrayList<Contacto> contactos;
     private RecyclerView rvContactos;
     private IRecylerViewFragmentPresenter presenter;
@@ -56,6 +57,12 @@ public class RecyclerViewFragment extends Fragment implements IRecyclerViewFragm
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         rvContactos.setLayoutManager(llm);
 
+    }
+
+    @Override
+    public void generarGridLayout() {
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
+        rvContactos.setLayoutManager(gridLayoutManager);
     }
 
     @Override

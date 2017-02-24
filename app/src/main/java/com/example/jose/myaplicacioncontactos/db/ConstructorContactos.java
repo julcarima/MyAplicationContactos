@@ -17,35 +17,41 @@ public class ConstructorContactos{
         this.context = context;
     }
 
-    public ArrayList<com.example.jose.myaplicacioncontactos.pojo.Contacto> obtenerDatos() {
+
+    public ArrayList<Contacto> obtenerDatos(){
+        /*ArrayList<Contacto> contactos = new ArrayList<>();
+        contactos.add(new Contacto(R.drawable.candy_icon, "Neko Chan", "96548461", "NekoChan@gmail.com", 5));
+        contactos.add(new Contacto(R.drawable.yammi_banana_icon, "Inu Chan", "5648584", "InuChan@gmail.com", 3));
+        contactos.add(new Contacto(R.drawable.shock_rave_bonus_icon, "Mar", "889456465", "Mar@gmail.com", 8));
+        contactos.add(new Contacto(R.drawable.forest_mushroom_icon, "Dark Black", "48485464", "DarkBlack@gmail.com", 9));
+        return contactos;*/
+
         BaseDatos db = new BaseDatos(context);
         insertarTresContactos(db);
-        return  db.obtenerTodosLosContactos();
+        return db.obtenerTodosLosContactos();
     }
-
-
 
     public void insertarTresContactos(BaseDatos db){
         ContentValues contentValues = new ContentValues();
-        contentValues.put(ConstantesBaseDatos.TABLE_CONTACTS_NOMBRE, "Anahi Salgado");
-        contentValues.put(ConstantesBaseDatos.TABLE_CONTACTS_TELEFONO, "77779999");
-        contentValues.put(ConstantesBaseDatos.TABLE_CONTACTS_EMAIL, "anahi@gmail.com");
+        contentValues.put(ConstantesBaseDatos.TABLE_CONTACTS_NOMBRE, "Neko Chan");
+        contentValues.put(ConstantesBaseDatos.TABLE_CONTACTS_TELEFONO, "96548461");
+        contentValues.put(ConstantesBaseDatos.TABLE_CONTACTS_EMAIL, "NekoChan@gmail.com");
         contentValues.put(ConstantesBaseDatos.TABLE_CONTACTS_FOTO, R.drawable.candy_icon);
 
         db.insertarContacto(contentValues);
 
         contentValues = new ContentValues();
-        contentValues.put(ConstantesBaseDatos.TABLE_CONTACTS_NOMBRE, "Pedro Sanchez");
-        contentValues.put(ConstantesBaseDatos.TABLE_CONTACTS_TELEFONO, "88882222");
-        contentValues.put(ConstantesBaseDatos.TABLE_CONTACTS_EMAIL, "pedro@gmail.com");
+        contentValues.put(ConstantesBaseDatos.TABLE_CONTACTS_NOMBRE, "Inu Chan");
+        contentValues.put(ConstantesBaseDatos.TABLE_CONTACTS_TELEFONO, "5648584");
+        contentValues.put(ConstantesBaseDatos.TABLE_CONTACTS_EMAIL, "InuChan@gmail.com");
         contentValues.put(ConstantesBaseDatos.TABLE_CONTACTS_FOTO, R.drawable.yammi_banana_icon);
 
         db.insertarContacto(contentValues);
 
         contentValues = new ContentValues();
-        contentValues.put(ConstantesBaseDatos.TABLE_CONTACTS_NOMBRE, "Mireya Lopez");
-        contentValues.put(ConstantesBaseDatos.TABLE_CONTACTS_TELEFONO, "33331111");
-        contentValues.put(ConstantesBaseDatos.TABLE_CONTACTS_EMAIL, "mireya@gmail.com");
+        contentValues.put(ConstantesBaseDatos.TABLE_CONTACTS_NOMBRE, "Mar");
+        contentValues.put(ConstantesBaseDatos.TABLE_CONTACTS_TELEFONO, "889456465");
+        contentValues.put(ConstantesBaseDatos.TABLE_CONTACTS_EMAIL, "Mar@gmail.com");
         contentValues.put(ConstantesBaseDatos.TABLE_CONTACTS_FOTO, R.drawable.shock_rave_bonus_icon);
 
         db.insertarContacto(contentValues);
@@ -63,6 +69,4 @@ public class ConstructorContactos{
         BaseDatos db = new BaseDatos(context);
         return db.obtenerLikesContacto(contacto);
     }
-
-
 }

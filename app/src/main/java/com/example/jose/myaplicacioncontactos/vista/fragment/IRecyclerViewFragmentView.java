@@ -6,12 +6,11 @@ import com.example.jose.myaplicacioncontactos.pojo.Contacto;
 
 import java.util.ArrayList;
 
-/**
- * Created by anahisalgado on 21/04/16.
- */
+
 public interface IRecyclerViewFragmentView {
 
     public void generarLinearLayoutVertical();
+    public void generarGridLayout();
 
     public ContactoAdaptador crearAdaptador(ArrayList<Contacto> contactos);
 

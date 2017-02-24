@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.anncode.aplicacioncontactos.model.Contacto;
+
 import com.example.jose.myaplicacioncontactos.pojo.Contacto;
 
 import java.util.ArrayList;
@@ -57,7 +57,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         Cursor registros = db.rawQuery(query, null);
 
         while (registros.moveToNext()){
-            Contacto contactoActual = new Contacto();
+            /*Contacto contactoActual = new Contacto();
             contactoActual.setId(registros.getInt(0));
             contactoActual.setNombre(registros.getString(1));
             contactoActual.setTelefono(registros.getString(2));
@@ -76,6 +76,7 @@ public class BaseDatos extends SQLiteOpenHelper {
             }
 
             contactos.add(contactoActual);
+            x*/
 
         }
 
@@ -97,8 +98,7 @@ public class BaseDatos extends SQLiteOpenHelper {
     }
 
 
-
-    public int obtenerLikesContacto(Contacto contacto) {
+    public int obtenerLikesContacto(Contacto contacto){
         int likes = 0;
 
         String query = "SELECT COUNT("+ConstantesBaseDatos.TABLE_LIKES_CONTACT_NUMERO_LIKES+")" +

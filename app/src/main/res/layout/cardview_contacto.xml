@@ -17,21 +17,18 @@
         <ImageView
             android:id="@+id/imgFoto"
             android:layout_width="match_parent"
-            android:layout_height="240dp"
+            android:layout_height="wrap_content"
             android:src="@drawable/shock_rave_icon"
-            android:scaleType="centerCrop"
-
             />
 
         <RelativeLayout
-            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             >
             <ImageButton
                 android:id="@+id/btnLike"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
                 android:background="@mipmap/ic_like"
                 android:layout_alignParentLeft="true"
                 />
